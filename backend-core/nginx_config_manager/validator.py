@@ -1,7 +1,6 @@
 import subprocess
 import os
 
-
 class NginxConfigValidator:
     @staticmethod
     def validate_nginx_config():
