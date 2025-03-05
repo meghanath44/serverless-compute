@@ -66,3 +66,31 @@ class ConfigGenerator:
         # Create the configuration file
         config_file_path = os.path.join(config_path, server_name)
         self.save_config(config_content, config_file_path)
+
+
+# Test usage
+if __name__ == "__main__":
+
+    import argparse
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--subdomain", type=str)
+    parser.add_argument("--domain", type=str)
+    parser.add_argument("--dns", type=str)
+    parser.add_argument("--port", type=str)
+
+    args = parser.parse_args()
+    args_dict = vars(args)
+    config_gen = ConfigGenerator()
+
+    # Take manual input if arguments are not provoded
+    if any(value is None for value in args_dict.values()):
+        subdomain = input("Enter subdomain (e.g., api): ")
+        domain = input("Enter domain (e.g., example.com): ")
+        container_dns = input("Enter container DNS / IP address: ")
+        container_port = input("Enter container port: ")
+        config_gen.create_nginx_config(subdomain, domain, container_dns, container_port)
+
+    # Use argument inputs if they were provided
+    else:
+        config_gen.create_nginx_config(args.subdomain, args.domain, args.container_dns, args.container_port)
