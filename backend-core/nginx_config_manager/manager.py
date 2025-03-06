@@ -37,34 +37,3 @@ class NginxConfigManager:
             self.reload_nginx()
         else:
             print("Aborting NGINX reload due to invalid configuration.")
-
-
-# Test usage
-if __name__ == "__main__":
-
-    import argparse
-
-    # Command line argument parsing
-    parser = argparse.ArgumentParser(description="Manage NGINX Configuration.")
-    parser.add_argument("--subdomain", type=str, help="Subdomain (e.g., api)")
-    parser.add_argument("--domain", type=str, help="Domain (e.g., example.com)")
-    parser.add_argument("--dns", type=str, help="Container DNS (e.g., 192.168.1.100)")
-    parser.add_argument("--port", type=int, help="Container port (e.g., 8080)")
-    parser.add_argument("--config_path", type=str, default='/etc/nginx/sites-available/', help="Path to save the NGINX configuration.")
-
-    args = parser.parse_args()
-
-    # Create the NginxConfigManager
-    nginx_manager = NginxConfigManager()
-
-    # If any argument is missing, prompt for manual input
-    if any(value is None for value in vars(args).values()):
-        subdomain = input("Enter subdomain (e.g., api): ")
-        domain = input("Enter domain (e.g., example.com): ")
-        container_dns = input("Enter container DNS / IP address: ")
-        container_port = input("Enter container port: ")
-        nginx_manager.manage_nginx_config(subdomain, domain, container_dns, container_port, args.config_path)
-    else:
-        nginx_manager.manage_nginx_config(
-            args.subdomain, args.domain, args.dns, args.port, args.config_path
-        )
