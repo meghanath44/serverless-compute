@@ -13,6 +13,33 @@
   align-items: center;
   background-color: #333;
   color: white;
+  height: 60px;
+  padding: 0px 5px;
+}
+
+.login, .signUp{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.login-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  background-color:aliceblue;
+}
+
+.login-box{
+  width: 220px;
+  background-color: aquamarine;
+  border-radius: 8px;
+  padding: 60px 30px;
+}
+
+.loginDetails{
+  color: red;
 }
 
 
