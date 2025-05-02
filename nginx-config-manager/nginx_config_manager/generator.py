@@ -77,7 +77,7 @@ if __name__ == "__main__":
     parser.add_argument("--subdomain", type=str)
     parser.add_argument("--domain", type=str)
     parser.add_argument("--dns", type=str)
-    parser.add_argument("--port", type=int)
+    parser.add_argument("--port", type=str)
 
     args = parser.parse_args()
     args_dict = vars(args)

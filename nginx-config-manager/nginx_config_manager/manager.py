@@ -49,7 +49,7 @@ if __name__ == "__main__":
     parser.add_argument("--subdomain", type=str, help="Subdomain (e.g., api)")
     parser.add_argument("--domain", type=str, help="Domain (e.g., example.com)")
     parser.add_argument("--dns", type=str, help="Container DNS (e.g., 192.168.1.100)")
-    parser.add_argument("--port", type=int, help="Container port (e.g., 8080)")
+    parser.add_argument("--port", type=str, help="Container port (e.g., 8080)")
     parser.add_argument("--config_path", type=str, default='/etc/nginx/sites-available/', help="Path to save the NGINX configuration.")
 
     args = parser.parse_args()
