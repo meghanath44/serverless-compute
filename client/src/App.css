@@ -17,6 +17,45 @@
   padding: 0px 5px;
 }
 
+.header2{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  color: black;
+  height: 40px;
+  padding: 0px 5px;
+}
+
+.header-left {
+  width: 150px;
+  position: relative;
+}
+
+.dropdown-toggle {
+  background-color: #007bff;
+  color: white;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  transform: translateX(0%); /* Opens to the left */
+  background-color: white;
+  color: black;
+  border: 1px solid #ccc;
+  width: 120px;
+  padding: 10px 0;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  z-index: 1000;
+  cursor: pointer;
+}
+
 .login, .signUp{
   display: flex;
   flex-direction: column;
@@ -40,6 +79,44 @@
 
 .loginDetails{
   color: red;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+.sidebar {
+  width: 220px;
+  background-color: #f5f5f5;
+  padding: 20px;
+  box-shadow: 1px 0 3px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin: 12px 0;
+  cursor: pointer;
+}
+
+.main-content {
+  flex: 1;
+  padding: 30px;
+  background-color: #fff;
+  overflow-y: auto;
+}
+
+.side-info {
+  width: 300px;
+  background-color: #fafafa;
+  padding: 20px;
+  border-left: 1px solid #ddd;
+  box-shadow: -1px 0 3px rgba(0, 0, 0, 0.1);
 }
 
 
