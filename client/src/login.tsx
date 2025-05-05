@@ -27,7 +27,7 @@ function Login(){
 
     let validateAndLogin = (data: loginRes) => {
         if(data.isSuccess){
-            navigate('../home');
+            navigate('../home', {state : { username : username}});
         }
         else{
             setPassword('');

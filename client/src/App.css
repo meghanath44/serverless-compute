@@ -119,6 +119,78 @@
   box-shadow: -1px 0 3px rgba(0, 0, 0, 0.1);
 }
 
+.form-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  font-family: Arial, sans-serif;
+}
+
+.form-container label {
+  display: block;
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+
+.form-container input,
+.form-container select {
+  width: 90%;
+  padding: 8px 10px;
+  margin-top: 6px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.create-button,
+.cancel-button {
+  padding: 10px 20px;
+  font-size: 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.create-button {
+  background-color: #1a73e8;
+  color: white;
+}
+
+.cancel-button {
+  background-color: #eee;
+  color: #333;
+}
+
+.service-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+}
+
+.service-table th, .service-table td {
+  border: 1px solid #ccc;
+  padding: 8px 12px;
+  text-align: left;
+}
+
+.service-table thead {
+  background-color: #f8f9fa;
+}
+
+.service-table tbody tr:nth-child(even) {
+  background-color: #f1f1f1;
+}
 
 
 

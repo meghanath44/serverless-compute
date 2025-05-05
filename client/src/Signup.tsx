@@ -7,8 +7,8 @@ interface signupRes{
 
 function Signup(){
     let navigate = useNavigate();
-    let [userName, setUserName] = useState('');
-    let [password, setPassword] = useState('');
+    let [userName, setUserName] = useState<string>("");
+    let [password, setPassword] = useState<string>("");
     let [rePassword, setRePassword] = useState('');
     let [signUpDetails, setSignUpDetails] = useState('');
     const PATH = "http://localhost:4000";
@@ -22,6 +22,9 @@ function Signup(){
         fetch(`${PATH}/signup`,{
             method : 'POST',
             mode : 'cors',
+            headers : {
+                'Content-Type' : 'application/json'
+            },
             body : JSON.stringify({
                 username : userName,
                 password : password
@@ -31,7 +34,7 @@ function Signup(){
 
     let validateAndSignup = (data: signupRes) => {
         if(data.isSuccess){
-            navigate('../home');
+            navigate('../home', {state : {username : userName}});
         }
         else{
             setPassword('');
