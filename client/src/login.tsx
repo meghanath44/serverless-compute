@@ -1,26 +1,38 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+interface loginRes{
+    isSuccess : boolean
+}
+
 function Login(){
 
     let navigate = useNavigate();
     let [username, setUsername] = useState('');
     let [password, setPassword] = useState('');
     let [loginDetails, setLoginDetails] = useState('');
+    const PATH = "http://localhost:4000";
 
     let onClickLogin =function(event: React.FormEvent<HTMLFormElement>){
         event.preventDefault();
-        if(verifyLoginDetails()){
-            navigate('./home');
+        fetch(`${PATH}/login`,{
+            method : 'POST',
+            mode : 'cors',
+            body : JSON.stringify({
+                username : username,
+                password : password
+            })
+        }).then(data => data.json()).then(data => validateAndLogin(data));
+    }
+
+    let validateAndLogin = (data: loginRes) => {
+        if(data.isSuccess){
+            navigate('../home', {state : { username : username}});
         }
         else{
             setPassword('');
             setLoginDetails('Invalid Credentials');
         }
-    }
-
-    let verifyLoginDetails = function(){
-        return false;
     }
 
     return(

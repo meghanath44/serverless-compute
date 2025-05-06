@@ -1,16 +1,47 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+interface signupRes{
+    isSuccess : boolean
+}
+
 function Signup(){
+    let navigate = useNavigate();
+    let [userName, setUserName] = useState<string>("");
+    let [password, setPassword] = useState<string>("");
+    let [rePassword, setRePassword] = useState('');
+    let [signUpDetails, setSignUpDetails] = useState('');
+    const PATH = "http://localhost:4000";
 
     let onClickSignUp = function(event: React.FormEvent<HTMLFormElement>){
         event.preventDefault();
+        if(password != rePassword) {
+            setSignUpDetails("Password mismatch");
+            return;
+        }
+        fetch(`${PATH}/signup`,{
+            method : 'POST',
+            mode : 'cors',
+            headers : {
+                'Content-Type' : 'application/json'
+            },
+            body : JSON.stringify({
+                username : userName,
+                password : password
+            })
+        }).then(data => data.json()).then(data => validateAndSignup(data));
     }
-    let navigate = useNavigate();
-    let [userName, setUserName] = useState('');
-    let [password, setPassword] = useState('');
-    let [rePassword, setRePassword] = useState('');
-    let [signUpDetails, setSignUpDetails] = useState('');
+
+    let validateAndSignup = (data: signupRes) => {
+        if(data.isSuccess){
+            navigate('../home', {state : {username : userName}});
+        }
+        else{
+            setPassword('');
+            setSignUpDetails('Invalid Credentials');
+        }
+    }
+    
 
     return(
         <div className="signUp">
