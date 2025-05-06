@@ -46,7 +46,10 @@ function Home(){
     const ImageUrls = [
         "custom-nginx:latest",
         "httpd:latest",
-        "hello-node:latest"
+        "apache-ubuntu:latest",
+        "hello-node:latest",
+        "react-test:latest",
+        "my-react-app:latest"
     ];
 
     const Regions = [
@@ -108,10 +111,14 @@ function Home(){
                         <h3>Services</h3>
                         <ul>
                             {menuItems.map((item) => (
+                                <div>
+                                <hr></hr>
                                 <li key={item} onClick={() => setSelectedItem(item)}>
                                     {item}
                                 </li>
+                                </div>
                             ))}
+                            <hr></hr>
                         </ul>
                     </div>
                     <div className="main-content">
