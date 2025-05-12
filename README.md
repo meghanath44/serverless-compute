@@ -1,9 +1,6 @@
 ## Serverless Computing Platform using Docker & NGINX:
 
 ---
-
-# Serverless Computing Platform using Docker & NGINX
-
 ## Introduction
 
 This project presents a **lightweight, self-hosted serverless compute platform** that enables rapid function deployment and execution using a minimal tech stack—**Docker**, **NGINX**, **Python**, and **Kafka**. Unlike cloud-native FaaS platforms (e.g., AWS Lambda, Google Cloud Run), our platform emphasizes **speed, simplicity, and developer control** by eliminating heavy orchestration layers like Kubernetes or Firecracker.
