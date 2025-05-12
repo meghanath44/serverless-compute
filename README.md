@@ -54,7 +54,7 @@ This project aims to:
 
    ```bash
    gh repo clone meghanath44/serverless-compute
-   cd <your-project-directory>
+   cd serverless-compute>
    ```
 
 2. **Start Kafka and Zookeeper** (or use Docker Compose):
